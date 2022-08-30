@@ -1,7 +1,7 @@
 /// Funciones que se activan cuando se llaman las acciones de autenticación.
 
 import 'package:flutter/material.dart';
-import '../../screens/home/home_screen.dart';
+import '../../screens/home/widgets/home_screen.dart';
 import '../../models/repositories/repositories.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux_navigation/flutter_redux_navigation.dart';

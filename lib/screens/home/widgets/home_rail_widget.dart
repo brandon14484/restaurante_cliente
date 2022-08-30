@@ -23,14 +23,19 @@ class HomeRailWidget extends StatelessWidget {
           label: Text('Administrar'),
         ),
         NavigationRailDestination(
-          icon: Icon(Icons.bookmark_border),
-          selectedIcon: Icon(Icons.book),
-          label: Text('Second'),
+          icon: Icon(Icons.soup_kitchen_outlined),
+          selectedIcon: Icon(Icons.kitchen),
+          label: Text('Cocina'),
         ),
         NavigationRailDestination(
-          icon: Icon(Icons.star_border),
-          selectedIcon: Icon(Icons.star),
-          label: Text('Third'),
+          icon: Icon(Icons.attach_money_outlined),
+          selectedIcon: Icon(Icons.money),
+          label: Text('Finanzas'),
+        ),
+        NavigationRailDestination(
+          icon: Icon(Icons.warehouse_rounded),
+          selectedIcon: Icon(Icons.warehouse_outlined),
+          label: Text('Bodega'),
         ),
       ],
     );
