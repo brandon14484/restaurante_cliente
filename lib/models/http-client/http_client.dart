@@ -6,6 +6,7 @@ import '../environment/environment_factory.dart';
 import '../http-client/http_methods.dart';
 import 'package:http/http.dart' as http;
 import '../http-client/http_timeout_exception.dart';
+import '../repositories/auth_token_repository.dart';
 
 /// Clase HTTP que se comunica con servicios externos.
 ///
@@ -82,9 +83,6 @@ class HttpClient {
   /// Llama al Backend de la aplicación MPH
   HttpClient toBackend() {
     var configuration = EnvironmentFactory.getConfiguration();
-
-    if (configuration.env == "production") secure();
-
     var backendURL = configuration.backendURL;
     toBaseURL(backendURL);
 
@@ -160,9 +158,7 @@ class HttpClient {
 
   /// Agrega el Token al header de la llamada
   Future<void> setToken() async {
-    // final String? token = await AuthTokenRepository().getToken();
-    final token = null;
-
+    final String? token = await AuthTokenRepository().getToken();
     if (token == null) {
       // Todo actualizar por otra excepcion
       throw Exception("No se encontró el Token");

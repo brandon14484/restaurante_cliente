@@ -2,12 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_redux_navigation/flutter_redux_navigation.dart';
+import 'package:form_validator/form_validator.dart';
 import '../../../redux/app_redux.dart' show AppState;
 import '../../../redux/auth/auth_actions.dart' show AuthLoginAction;
-import '../../../widgets/form/form.dart'
-    show RutTextFieldWidget, rutAddTextFieldListener, PasswordTextFieldWidget;
-import '../../../widgets/ui/ui.dart' show UiRaisedButton;
+import '../../../widgets/form/form.dart' show PasswordTextFieldWidget;
+import '../../../widgets/ui/ui.dart' show UiRaisedButton, UiTextFormWidget;
 
 class LoginFormWidget extends StatefulWidget {
   const LoginFormWidget({Key? key}) : super(key: key);
@@ -19,18 +18,12 @@ class LoginFormWidget extends StatefulWidget {
 class LoginFormWidgetState extends State<LoginFormWidget> {
   final _formKey = GlobalKey<FormState>();
 
-  final TextEditingController _rutController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   @override
-  void initState() {
-    super.initState();
-    rutAddTextFieldListener(_rutController);
-  }
-
-  @override
   void dispose() {
-    _rutController.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -62,7 +55,13 @@ class LoginFormWidgetState extends State<LoginFormWidget> {
                 ],
               ),
             ),
-            RutTextFieldWidget(controller: _rutController, shouldFocus: true),
+            UiTextFormWidget(
+              validator: ValidationBuilder().required().email().build(),
+              controller: _emailController,
+              labelText: "Correo electrónico",
+              hintText: "Ingresa tu Correo electrónico...",
+              shouldFocus: true,
+            ),
             PasswordTextFieldWidget(controller: _passwordController),
             Padding(
               padding: const EdgeInsets.only(
@@ -96,7 +95,7 @@ class LoginFormWidgetState extends State<LoginFormWidget> {
 
     // Imprime los valores del formulario
     final authSubmitAction = AuthLoginAction(
-      rut: _rutController.text,
+      username: _emailController.text,
       password: _passwordController.text,
     );
     StoreProvider.of<AppState>(context).dispatch(authSubmitAction);

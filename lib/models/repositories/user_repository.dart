@@ -11,13 +11,6 @@ class UserRepository extends ApiRepository {
     required String username,
     required String password,
   }) async {
-    return User(
-      rut: "111111111",
-      rutFormatted: "11.111.111-1",
-      firstName: "Juan",
-      fullName: "Juan Topo",
-    );
-    // TODO Obtener usuario real
     // Obtiene TOKEN
     final tokenResponse = await apiClient.auth.login(username, password);
     // Establece TOKEN
