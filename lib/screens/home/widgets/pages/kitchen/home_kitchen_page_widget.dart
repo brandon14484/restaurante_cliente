@@ -3,8 +3,8 @@ import 'package:restaurante_cliente/screens/cash-register/cash_register_screen.d
 import 'package:restaurante_cliente/screens/first-page-admin/first_page_admin_screen.dart';
 import 'package:restaurante_cliente/screens/providers/providers_screen.dart';
 
-class HomeAdminPageWidget extends StatelessWidget {
-  const HomeAdminPageWidget({super.key});
+class HomeKitchenPageWidget extends StatelessWidget {
+  const HomeKitchenPageWidget({super.key});
 
   @override
   build(BuildContext context) {
@@ -18,9 +18,7 @@ class HomeAdminPageWidget extends StatelessWidget {
               textColor: Colors.white,
               child: Text(
                 "Ingresos Nuevos",
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
+                style: TextStyle( fontSize: 20.0,),
               ),
               onPressed: () {
                 Navigator.pushNamed(context, FirstPageAdminScreen.routeName);
@@ -31,9 +29,7 @@ class HomeAdminPageWidget extends StatelessWidget {
               textColor: Colors.white,
               child: Text(
                 "Proveedores",
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
+                style: TextStyle( fontSize: 20.0,),
               ),
               onPressed: () {
                 Navigator.pushNamed(context, ProvidersScreen.routeName);
@@ -44,15 +40,15 @@ class HomeAdminPageWidget extends StatelessWidget {
               textColor: Colors.white,
               child: Text(
                 "Caja",
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
+                style: TextStyle(fontSize: 20.0,),
               ),
-              onPressed: () {
+              onPressed: (){
                 Navigator.pushNamed(context, CashRegisterScreen.routeName);
               }),
+
         ],
       ),
     );
   }
+
 }

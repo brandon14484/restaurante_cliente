@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurante_cliente/screens/home/widgets/pages/administration/home_admin_page_widget.dart';
+import 'package:restaurante_cliente/screens/home/widgets/pages/kitchen/home_kitchen_page_widget.dart';
 
 /// SubPáginas que se mostrarán en la pantalla de inicio.
 class HomePagesWidget extends StatelessWidget {
@@ -15,8 +16,9 @@ class HomePagesWidget extends StatelessWidget {
     // Todo quizá hay que modificar esto
     List<Widget> pages = [
       const HomeAdminPageWidget(),
-      new Text('2'),
-      new Text('3'),
+      const HomeKitchenPageWidget(),
+      new Text('Finanzas'),
+      new Text('Bodega')
     ];
 
     return Container(
