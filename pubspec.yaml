@@ -38,6 +38,7 @@ dependencies:
   http: ^0.13.4 # Para el uso de http
   meta: ^1.7.0 # Escribir Getters y Setters
   shared_preferences: ^2.0.13 # Almacenamiento de Datos en la APP de forma local
+  device_info_plus: ^3.2.3 # Obtiene información adicional para el dispositivo
 
 dev_dependencies:
   flutter_test:

@@ -36,10 +36,9 @@ void Function(
     try {
       final user = await UserRepository().getAuthUser();
 
-      debugPrint("Usuario autenticado: ${user.rut}");
+      debugPrint("Usuario autenticado: ${user.email}");
       store.dispatch(AuthValidateSucceededAction(user: user));
-      debugPrint("TODO - Navigate to HomeScreen");
-      // store.dispatch(NavigateToAction.push(HomeScreen.routeName));
+      store.dispatch(NavigateToAction.push(HomeScreen.routeName));
     } catch (e) {
       debugPrint("Error autenticando usuario ${e.toString()}");
 
@@ -65,11 +64,11 @@ void Function(
 
     try {
       final user = await UserRepository().login(
-        username: action.rut,
+        username: action.username,
         password: action.password,
       );
 
-      debugPrint("Usuario autenticado: ${user.rut}");
+      debugPrint("Usuario autenticado: ${user.email}");
 
       store.dispatch(AuthLoginSucceededAction(user: user));
       store.dispatch(NavigateToAction.replace(HomeScreen.routeName));
@@ -94,7 +93,7 @@ void Function(
   return (store, action, next) async {
     next(action);
     try {
-      // await UserRepository().logout(); // TODO Habilitar
+      await UserRepository().logout();
       store.dispatch(AuthLogoutSucceededAction());
       store.dispatch(NavigateToAction.replace(LoginScreen.routeName));
     } catch (e) {

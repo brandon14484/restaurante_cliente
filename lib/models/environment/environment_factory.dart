@@ -18,11 +18,8 @@ class EnvironmentFactory {
   /// Si el ambiente está en desarrollo y la plataforma **no** es "Android",
   /// retorna [EnvironmentDevelopment.config]
   static Environment getConfiguration() {
-    const bool isProduction = bool.fromEnvironment('dart.vm.product');
-
-    if (isProduction) {
-      return EnvironmentProduction.config;
-    }
+    // Debería también tener un LINK productivo usando EnvironmentProduction,
+    // pero en esta app no se usará.
 
     if (defaultTargetPlatform == TargetPlatform.android) {
       return EnvironmentDevelopment.configAndroid;

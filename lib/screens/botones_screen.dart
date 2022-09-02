@@ -9,7 +9,7 @@ class BotonesScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Botones"),
+        title: Text("PEDIDOS"),
       ),
         body: Container(
           child: new Column(

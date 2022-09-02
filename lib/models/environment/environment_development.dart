@@ -3,7 +3,7 @@ import './environment.dart';
 /// Configuración de ambiente de desarrollo.
 class EnvironmentDevelopment extends Environment {
   static const String envName = "development";
-  static const String port = "8000";
+  static const String port = "80";
 
   static const Environment configAndroid = EnvironmentDevelopment(
     backendURL: "10.0.2.2:$port",
@@ -11,7 +11,7 @@ class EnvironmentDevelopment extends Environment {
   );
 
   static const Environment config = EnvironmentDevelopment(
-    backendURL: "localhost:$port",
+    backendURL: "restaurante-sigloxxi.local:$port",
     env: envName,
   );
 

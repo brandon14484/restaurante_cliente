@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
 
-/// Pantalla para inciar sesión.
-class ProvidersScreen extends StatelessWidget {
-  static const routeName = '/providers';
 
-  const ProvidersScreen({super.key});
+/// Pantalla para inciar sesión.
+class CellarProvidersScreen extends StatelessWidget {
+  static const routeName = '/cellar-providers';
+
+  const CellarProvidersScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("PEDIDOS"),
+          title: Text("BODEGA"),
         ),
         body: Container(
           child: new Column(
@@ -24,15 +25,14 @@ class ProvidersScreen extends StatelessWidget {
                       color: Colors.blue,
                       textColor: Colors.white,
                       child: Text(
-                        "Nuevo Pedido", style: TextStyle(fontSize: 20.0,),),
+                        "Nueva  ", style: TextStyle(fontSize: 20.0,),),
                       onPressed: (){}),
                   new RaisedButton(
                       color: Colors.blue,
                       textColor: Colors.white,
                       child: Text(
-                        "Historial De Pedidos", style: TextStyle(fontSize: 20.0,),),
+                        "Eliminar ", style: TextStyle(fontSize: 20.0,),),
                       onPressed: (){}),
-
                 ],
               )
             ],

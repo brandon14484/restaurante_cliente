@@ -37,6 +37,11 @@ class HomeRailWidget extends StatelessWidget {
           selectedIcon: Icon(Icons.warehouse_outlined),
           label: Text('Bodega'),
         ),
+        NavigationRailDestination(
+          icon: Icon(Icons.settings_outlined),
+          selectedIcon: Icon(Icons.settings),
+          label: Text('Configuración'),
+        ),
       ],
     );
   }

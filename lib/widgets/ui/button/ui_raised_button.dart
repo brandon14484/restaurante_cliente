@@ -13,11 +13,16 @@ class UiRaisedButton extends StatelessWidget {
   /// Acción que se ejecuta cuando se presiona el botón.
   final Function onPressed;
 
+  final Color? color;
+  final Color? textColor;
+
   const UiRaisedButton({
     super.key,
     this.text,
     this.customChild,
     required this.onPressed,
+    this.color,
+    this.textColor,
   }) : assert(text != null || customChild != null);
 
   @override
@@ -28,7 +33,8 @@ class UiRaisedButton extends StatelessWidget {
       onPressed: () => onPressed(),
       style: ElevatedButton.styleFrom(
         minimumSize: const Size(130, 50),
-        surfaceTintColor: theme.colorScheme.primary,
+        primary: color ?? theme.colorScheme.primary,
+        surfaceTintColor: color ?? theme.colorScheme.primary,
         elevation: 2,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
@@ -42,7 +48,7 @@ class UiRaisedButton extends StatelessWidget {
           ? Text(
               text!,
               style: theme.textTheme.subtitle2?.copyWith(
-                color: theme.colorScheme.onPrimary,
+                color: textColor ?? theme.colorScheme.onPrimary,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),

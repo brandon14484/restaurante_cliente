@@ -5,12 +5,12 @@ import '../../../models/backend/users/user.dart';
 
 /// Acción cuando se intenta iniciar sesión.
 class AuthLoginAction {
-  final String rut;
+  final String username;
   final String password;
   final Completer completer;
 
   AuthLoginAction({
-    required this.rut,
+    required this.username,
     required this.password,
     Completer? completer
   }): completer = completer ?? Completer();

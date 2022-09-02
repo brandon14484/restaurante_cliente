@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:restaurante_cliente/screens/cellar/cellar_providers_screen.dart';
 
 
 /// Pantalla para inciar sesión.
-class ProvidersScreen extends StatelessWidget {
-  static const routeName = '/providers';
+class CellarRecipeScreen extends StatelessWidget {
+  static const routeName = '/cellar-recipe';
 
-  const ProvidersScreen({super.key});
+  const CellarRecipeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("PEDIDOS"),
+          title: Text("BODEGA"),
         ),
         body: Container(
           child: new Column(
@@ -24,15 +25,14 @@ class ProvidersScreen extends StatelessWidget {
                       color: Colors.blue,
                       textColor: Colors.white,
                       child: Text(
-                        "Nuevo Pedido", style: TextStyle(fontSize: 20.0,),),
+                        "Nueva  ", style: TextStyle(fontSize: 20.0,),),
                       onPressed: (){}),
                   new RaisedButton(
                       color: Colors.blue,
                       textColor: Colors.white,
                       child: Text(
-                        "Historial De Pedidos", style: TextStyle(fontSize: 20.0,),),
+                        "Eliminar ", style: TextStyle(fontSize: 20.0,),),
                       onPressed: (){}),
-
                 ],
               )
             ],

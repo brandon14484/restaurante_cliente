@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import '../../../utilities/device/device.dart';
 import './payloads/payloads.dart';
 import '../api_error_response_exception.dart';
 import '../api_response.dart';
@@ -23,11 +24,20 @@ abstract class AuthApiClient {
   /// Arroja [TimeoutException] Si la solicitud tarda demasiado en responder.
   Future<ApiResponse<AuthLoginResponse>> login(
       String username, String password) async {
+    var deviceName = await Device.getName();
+    dynamic requestData = {
+      'username': username,
+      'password': password,
+      'device': deviceName,
+    };
+
     final response = await HttpClient()
         .toBackend()
         .toRoute(urls.login)
         .withMethodPost()
-        // Todo agregar datos del usuario (usuario, contraseña, dispositivo)
+        .withData(requestData)
+        .sendJson()
+        .receiveJson()
         .call();
 
     Map<String, dynamic> result = jsonDecode(response.body);
@@ -56,6 +66,7 @@ abstract class AuthApiClient {
         .toRoute(urls.user)
         .withToken()
         .withMethodGet()
+        .sendJson()
         .receiveJson()
         .call();
 
@@ -75,8 +86,26 @@ abstract class AuthApiClient {
   }
 
   /// Cierra Sesión.
-  Future<dynamic> logout() async {
-    throw UnimplementedError();
+  Future<ApiResponse> logout() async {
+    final response = await HttpClient()
+        .toBackend()
+        .toRoute(urls.logout)
+        .withToken()
+        .withMethodPost()
+        .sendJson()
+        .receiveJson()
+        .call();
+
+    Map<String, dynamic> result = jsonDecode(response.body);
+
+    if (response.statusCode != 200) {
+      throw ApiErrorResponseException.responseFromJson(
+        result,
+        response.statusCode,
+      );
+    }
+
+    return ApiResponse.fromJson(json: result);
   }
 
   /// Registra cuenta.
@@ -90,6 +119,7 @@ abstract class AuthApiClient {
         .toRoute(urls.signUp)
         .withData(payload.toMap())
         .withMethodPost()
+        .sendJson()
         .receiveJson()
         .call();
 

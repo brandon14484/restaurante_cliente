@@ -5,10 +5,10 @@ class AuthApiClientURLsLive extends AuthApiClientURLs {
   // Establecimiento de propiedades de AuthApiClientURLsLive
   static const AuthApiClientURLs authApiClientLiveURLSLive =
       AuthApiClientURLsLive(
-    login: "/auth/login",
-    user: "/auth/user",
-    logout: "/auth/logout",
-    signUp: "/auth/sign-up",
+    login: "/api/auth/login",
+    user: "/api/auth/user",
+    logout: "/api/auth/logout",
+    signUp: "/api/auth/sign-up",
   );
 
   const AuthApiClientURLsLive({
