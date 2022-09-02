@@ -4,3 +4,4 @@ library repositories;
 
 export 'auth_token_repository.dart';
 export 'user_repository.dart';
+export 'tables_repository.dart';

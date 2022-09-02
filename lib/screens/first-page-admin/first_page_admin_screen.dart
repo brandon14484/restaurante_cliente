@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurante_cliente/screens/table/index/table_index_screen.dart';
 
 class FirstPageAdminScreen extends StatelessWidget {
   static const routeName = '/first-page-admin';
@@ -25,7 +26,7 @@ class FirstPageAdminScreen extends StatelessWidget {
                               fontSize: 20.0,
                             ),
                           ),
-                          onPressed: () {}),
+                          onPressed: () => Navigator.pushNamed(context, TableIndexScreen.routeName)),
                       new RaisedButton(
                           color: Colors.red,
                           textColor: Colors.white,

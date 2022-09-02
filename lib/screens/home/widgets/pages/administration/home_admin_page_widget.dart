@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restaurante_cliente/screens/cash-register/cash_register_screen.dart';
-import 'package:restaurante_cliente/screens/first-page-admin/first_page_admin_screen.dart';
 import 'package:restaurante_cliente/screens/providers/providers_screen.dart';
+import '../../../../first-page-admin/first_page_admin_screen.dart';
 
 class HomeAdminPageWidget extends StatelessWidget {
   const HomeAdminPageWidget({super.key});

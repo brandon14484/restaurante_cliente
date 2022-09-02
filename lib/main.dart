@@ -5,14 +5,11 @@ import 'package:redux/redux.dart';
 import 'package:restaurante_cliente/screens/cash-register/cash_register_screen.dart';
 import 'package:restaurante_cliente/screens/cellar-providers/cellar_providers_screen.dart';
 import 'package:restaurante_cliente/screens/cellar-recipe/cellar_recipe.dart';
-import 'package:restaurante_cliente/screens/cellar/cellar_providers_screen.dart';
-import 'package:restaurante_cliente/screens/cellar/cellar_recipe.dart';
 import 'package:restaurante_cliente/screens/cellar/cellar_screen.dart';
 import 'package:restaurante_cliente/screens/first-page-admin/first_page_admin_screen.dart';
-import 'package:restaurante_cliente/screens/home/widgets/cellar/cellar_screen.dart';
-import 'package:restaurante_cliente/screens/kitchen-page/order_screen.dart';
 import 'package:restaurante_cliente/screens/kitchen-page/table_order_screen.dart';
 import 'package:restaurante_cliente/screens/providers/providers_screen.dart';
+import 'package:restaurante_cliente/screens/table/index/table_index_screen.dart';
 import 'screens/home/home_screen.dart';
 import 'screens/login/login_screen.dart';
 import 'theme/my_themes.dart';
@@ -33,7 +30,7 @@ class MyApp extends StatefulWidget {
   MyAppState createState() => MyAppState();
 }
 
-class MyAppState extends State<MyApp>{
+class MyAppState extends State<MyApp> {
   late Store<AppState> store;
 
   /// Inicia estado global y comprueba estado de sesión de usuario.
@@ -50,7 +47,7 @@ class MyAppState extends State<MyApp>{
       ],
     );
     WidgetsBinding.instance.addPostFrameCallback(
-          (_) {
+      (_) {
         store.dispatch(AuthValidateAction());
         ValidationBuilder.setLocale('es');
       },
@@ -65,7 +62,7 @@ class MyAppState extends State<MyApp>{
     );
   }
 
-  _buildApp(){
+  _buildApp() {
     return MaterialApp(
       title: 'Restaurant XXI',
       debugShowCheckedModeBanner: false,
@@ -76,24 +73,17 @@ class MyAppState extends State<MyApp>{
         MainScreen.routeName: (context) => const MainScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),
         HomeScreen.routeName: (context) => const HomeScreen(),
-        ProvidersScreen.routeName:(context) => const ProvidersScreen(),
-        FirstPageAdminScreen.routeName:(context) => const FirstPageAdminScreen(),
-        CashRegisterScreen.routeName:(context) => const CashRegisterScreen(),
-        CellarScreen.routeName:(context) => const CellarScreen(),
-        CellarRecipeScreen.routeName:(context) => const CellarRecipeScreen(),
-        CellarProvidersScreen.routeName:(context) => const CellarProvidersScreen(),
-        TableOrderScreen.routeName:(context) => const TableOrderScreen(),
-
-
+        ProvidersScreen.routeName: (context) => const ProvidersScreen(),
+        FirstPageAdminScreen.routeName: (context) =>
+            const FirstPageAdminScreen(),
+        CashRegisterScreen.routeName: (context) => const CashRegisterScreen(),
+        CellarScreen.routeName: (context) => const CellarScreen(),
+        CellarRecipeScreen.routeName: (context) => const CellarRecipeScreen(),
+        CellarProvidersScreen.routeName: (context) =>
+            const CellarProvidersScreen(),
+        TableOrderScreen.routeName: (context) => const TableOrderScreen(),
+        TableIndexScreen.routeName: (context) => const TableIndexScreen(),
       },
     );
   }
 }
-
-
-
-
-
-
-
-

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurante_cliente/screens/cellar-providers/cellar_providers_screen.dart';
 import 'package:restaurante_cliente/screens/cellar-recipe/cellar_recipe.dart';
-import 'package:restaurante_cliente/screens/cellar/cellar_providers_screen.dart';
-import 'package:restaurante_cliente/screens/cellar/cellar_recipe.dart';
 import 'package:restaurante_cliente/screens/cellar/cellar_screen.dart';
 
 
@@ -35,7 +33,7 @@ class HomeCellarPageWidget extends StatelessWidget {
                 style: TextStyle( fontSize: 20.0,),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, CellarRecipeScreen.routeName.);
+                Navigator.pushNamed(context, CellarRecipeScreen.routeName);
                 // codigo del la acción a realizar
               }),
           new RaisedButton(
